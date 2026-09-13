@@ -1,0 +1,453 @@
+{
+  "models": {
+    "Logistic Regression": {
+      "train_accuracy": 0.5605,
+      "train_f1": 0.4374,
+      "test_accuracy": 0.5319,
+      "precision": 0.2929,
+      "recall": 0.639,
+      "f1": 0.4017,
+      "roc_auc": 0.616,
+      "pr_auc": 0.3858,
+      "cv_5fold_f1_mean": 0.4233,
+      "cv_5fold_f1_std": 0.0173,
+      "cv_5fold_acc_mean": 0.5605,
+      "cv_5fold_acc_std": 0.015,
+      "fit_status": "Underfitting (Both Low)",
+      "best_hyperparameters": null,
+      "confusion_matrix": [
+        [
+          899,
+          910
+        ],
+        [
+          213,
+          377
+        ]
+      ],
+      "classification_report": {
+        "Not Fraud": {
+          "precision": 0.8084532374100719,
+          "recall": 0.49695964621337757,
+          "f1-score": 0.6155426223895926,
+          "support": 1809.0
+        },
+        "Fraud": {
+          "precision": 0.29292929292929293,
+          "recall": 0.6389830508474577,
+          "f1-score": 0.40170484816196056,
+          "support": 590.0
+        },
+        "accuracy": 0.5318882867861608,
+        "macro avg": {
+          "precision": 0.5506912651696825,
+          "recall": 0.5679713485304176,
+          "f1-score": 0.5086237352757765,
+          "support": 2399.0
+        },
+        "weighted avg": {
+          "precision": 0.6816674403097553,
+          "recall": 0.5318882867861608,
+          "f1-score": 0.5629522569063483,
+          "support": 2399.0
+        }
+      },
+      "is_selected": false
+    },
+    "Decision Tree": {
+      "train_accuracy": 0.7639,
+      "train_f1": 0.2821,
+      "test_accuracy": 0.747,
+      "precision": 0.4541,
+      "recall": 0.1424,
+      "f1": 0.2168,
+      "roc_auc": 0.6068,
+      "pr_auc": 0.3518,
+      "cv_5fold_f1_mean": 0.2577,
+      "cv_5fold_f1_std": 0.0743,
+      "cv_5fold_acc_mean": 0.7391,
+      "cv_5fold_acc_std": 0.0363,
+      "fit_status": "Good Fit",
+      "best_hyperparameters": null,
+      "confusion_matrix": [
+        [
+          1708,
+          101
+        ],
+        [
+          506,
+          84
+        ]
+      ],
+      "classification_report": {
+        "Not Fraud": {
+          "precision": 0.7714543812104788,
+          "recall": 0.9441680486456606,
+          "f1-score": 0.8491175739497887,
+          "support": 1809.0
+        },
+        "Fraud": {
+          "precision": 0.4540540540540541,
+          "recall": 0.1423728813559322,
+          "f1-score": 0.2167741935483871,
+          "support": 590.0
+        },
+        "accuracy": 0.7469779074614422,
+        "macro avg": {
+          "precision": 0.6127542176322665,
+          "recall": 0.5432704650007965,
+          "f1-score": 0.5329458837490879,
+          "support": 2399.0
+        },
+        "weighted avg": {
+          "precision": 0.6933942757405787,
+          "recall": 0.7469779074614422,
+          "f1-score": 0.6936016946514032,
+          "support": 2399.0
+        }
+      },
+      "is_selected": false
+    },
+    "Random Forest (Bagging)": {
+      "train_accuracy": 0.8221,
+      "train_f1": 0.4342,
+      "test_accuracy": 0.7753,
+      "precision": 0.8312,
+      "recall": 0.1085,
+      "f1": 0.1919,
+      "roc_auc": 0.6091,
+      "pr_auc": 0.3766,
+      "cv_5fold_f1_mean": 0.204,
+      "cv_5fold_f1_std": 0.0289,
+      "cv_5fold_acc_mean": 0.7792,
+      "cv_5fold_acc_std": 0.0057,
+      "fit_status": "Overfitting (Train >> Test)",
+      "best_hyperparameters": null,
+      "confusion_matrix": [
+        [
+          1796,
+          13
+        ],
+        [
+          526,
+          64
+        ]
+      ],
+      "classification_report": {
+        "Not Fraud": {
+          "precision": 0.7734711455641688,
+          "recall": 0.9928137092316197,
+          "f1-score": 0.869523117889131,
+          "support": 1809.0
+        },
+        "Fraud": {
+          "precision": 0.8311688311688312,
+          "recall": 0.10847457627118644,
+          "f1-score": 0.191904047976012,
+          "support": 590.0
+        },
+        "accuracy": 0.775323051271363,
+        "macro avg": {
+          "precision": 0.8023199883665,
+          "recall": 0.550644142751403,
+          "f1-score": 0.5307135829325714,
+          "support": 2399.0
+        },
+        "weighted avg": {
+          "precision": 0.7876610724115014,
+          "recall": 0.775323051271363,
+          "f1-score": 0.7028723253719403,
+          "support": 2399.0
+        }
+      },
+      "is_selected": false
+    },
+    "AdaBoost": {
+      "train_accuracy": 0.3874,
+      "train_f1": 0.4422,
+      "test_accuracy": 0.3652,
+      "precision": 0.2782,
+      "recall": 0.9915,
+      "f1": 0.4345,
+      "roc_auc": 0.6218,
+      "pr_auc": 0.3451,
+      "cv_5fold_f1_mean": 0.4411,
+      "cv_5fold_f1_std": 0.0064,
+      "cv_5fold_acc_mean": 0.3897,
+      "cv_5fold_acc_std": 0.0113,
+      "fit_status": "Underfitting (Both Low)",
+      "best_hyperparameters": null,
+      "confusion_matrix": [
+        [
+          291,
+          1518
+        ],
+        [
+          5,
+          585
+        ]
+      ],
+      "classification_report": {
+        "Not Fraud": {
+          "precision": 0.9831081081081081,
+          "recall": 0.16086235489220563,
+          "f1-score": 0.27648456057007126,
+          "support": 1809.0
+        },
+        "Fraud": {
+          "precision": 0.2781740370898716,
+          "recall": 0.9915254237288136,
+          "f1-score": 0.4344597103601931,
+          "support": 590.0
+        },
+        "accuracy": 0.3651521467278033,
+        "macro avg": {
+          "precision": 0.6306410725989898,
+          "recall": 0.5761938893105096,
+          "f1-score": 0.3554721354651322,
+          "support": 2399.0
+        },
+        "weighted avg": {
+          "precision": 0.8097395787622308,
+          "recall": 0.3651521467278033,
+          "f1-score": 0.3153363064542613,
+          "support": 2399.0
+        }
+      },
+      "is_selected": false
+    },
+    "Gradient Boosting": {
+      "train_accuracy": 0.7868,
+      "train_f1": 0.2511,
+      "test_accuracy": 0.7741,
+      "precision": 0.7927,
+      "recall": 0.1102,
+      "f1": 0.1935,
+      "roc_auc": 0.6279,
+      "pr_auc": 0.3957,
+      "cv_5fold_f1_mean": 0.2159,
+      "cv_5fold_f1_std": 0.0279,
+      "cv_5fold_acc_mean": 0.7777,
+      "cv_5fold_acc_std": 0.006,
+      "fit_status": "Good Fit",
+      "best_hyperparameters": null,
+      "confusion_matrix": [
+        [
+          1792,
+          17
+        ],
+        [
+          525,
+          65
+        ]
+      ],
+      "classification_report": {
+        "Not Fraud": {
+          "precision": 0.7734138972809668,
+          "recall": 0.9906025428413489,
+          "f1-score": 0.868637905962191,
+          "support": 1809.0
+        },
+        "Fraud": {
+          "precision": 0.7926829268292683,
+          "recall": 0.11016949152542373,
+          "f1-score": 0.19345238095238096,
+          "support": 590.0
+        },
+        "accuracy": 0.7740725302209254,
+        "macro avg": {
+          "precision": 0.7830484120551175,
+          "recall": 0.5503860171833863,
+          "f1-score": 0.531045143457286,
+          "support": 2399.0
+        },
+        "weighted avg": {
+          "precision": 0.7781528416050593,
+          "recall": 0.7740725302209254,
+          "f1-score": 0.7025856092736592,
+          "support": 2399.0
+        }
+      },
+      "is_selected": false
+    },
+    "XGBoost": {
+      "train_accuracy": 0.736,
+      "train_f1": 0.6338,
+      "test_accuracy": 0.5519,
+      "precision": 0.2988,
+      "recall": 0.6102,
+      "f1": 0.4011,
+      "roc_auc": 0.6212,
+      "pr_auc": 0.382,
+      "cv_5fold_f1_mean": 0.4092,
+      "cv_5fold_f1_std": 0.0129,
+      "cv_5fold_acc_mean": 0.5785,
+      "cv_5fold_acc_std": 0.0078,
+      "fit_status": "Overfitting (Train >> Test)",
+      "best_hyperparameters": null,
+      "confusion_matrix": [
+        [
+          964,
+          845
+        ],
+        [
+          230,
+          360
+        ]
+      ],
+      "classification_report": {
+        "Not Fraud": {
+          "precision": 0.8073701842546064,
+          "recall": 0.5328911000552792,
+          "f1-score": 0.642024642024642,
+          "support": 1809.0
+        },
+        "Fraud": {
+          "precision": 0.2987551867219917,
+          "recall": 0.6101694915254238,
+          "f1-score": 0.4011142061281337,
+          "support": 590.0
+        },
+        "accuracy": 0.5518966235931638,
+        "macro avg": {
+          "precision": 0.5530626854882991,
+          "recall": 0.5715302957903514,
+          "f1-score": 0.5215694240763878,
+          "support": 2399.0
+        },
+        "weighted avg": {
+          "precision": 0.682283544594647,
+          "recall": 0.5518966235931638,
+          "f1-score": 0.5827761396574308,
+          "support": 2399.0
+        }
+      },
+      "is_selected": false
+    },
+    "SVM": {
+      "train_accuracy": 0.8285,
+      "train_f1": 0.6767,
+      "test_accuracy": 0.6544,
+      "precision": 0.3235,
+      "recall": 0.3712,
+      "f1": 0.3457,
+      "roc_auc": 0.6108,
+      "pr_auc": 0.3464,
+      "cv_5fold_f1_mean": 0.3383,
+      "cv_5fold_f1_std": 0.0209,
+      "cv_5fold_acc_mean": 0.6577,
+      "cv_5fold_acc_std": 0.0101,
+      "fit_status": "Overfitting (Train >> Test)",
+      "best_hyperparameters": null,
+      "confusion_matrix": [
+        [
+          1351,
+          458
+        ],
+        [
+          371,
+          219
+        ]
+      ],
+      "classification_report": {
+        "Not Fraud": {
+          "precision": 0.7845528455284553,
+          "recall": 0.7468214483139857,
+          "f1-score": 0.7652223166241858,
+          "support": 1809.0
+        },
+        "Fraud": {
+          "precision": 0.32348596750369274,
+          "recall": 0.3711864406779661,
+          "f1-score": 0.345698500394633,
+          "support": 590.0
+        },
+        "accuracy": 0.6544393497290538,
+        "macro avg": {
+          "precision": 0.554019406516074,
+          "recall": 0.5590039444959759,
+          "f1-score": 0.5554604085094095,
+          "support": 2399.0
+        },
+        "weighted avg": {
+          "precision": 0.6711599909913106,
+          "recall": 0.6544393497290538,
+          "f1-score": 0.6620463884977014,
+          "support": 2399.0
+        }
+      },
+      "is_selected": false
+    },
+    "AdaBoost (Tuned)": {
+      "train_accuracy": 0.3874,
+      "train_f1": 0.4422,
+      "test_accuracy": 0.3652,
+      "precision": 0.2782,
+      "recall": 0.9915,
+      "f1": 0.4345,
+      "roc_auc": 0.5763,
+      "pr_auc": 0.278,
+      "cv_5fold_f1_mean": 0.442,
+      "cv_5fold_f1_std": 0.0064,
+      "cv_5fold_acc_mean": 0.3897,
+      "cv_5fold_acc_std": 0.0113,
+      "fit_status": "Underfitting (Both Low)",
+      "best_hyperparameters": {
+        "learning_rate": 0.05,
+        "n_estimators": 80
+      },
+      "confusion_matrix": [
+        [
+          291,
+          1518
+        ],
+        [
+          5,
+          585
+        ]
+      ],
+      "classification_report": {
+        "Not Fraud": {
+          "precision": 0.9831081081081081,
+          "recall": 0.16086235489220563,
+          "f1-score": 0.27648456057007126,
+          "support": 1809.0
+        },
+        "Fraud": {
+          "precision": 0.2781740370898716,
+          "recall": 0.9915254237288136,
+          "f1-score": 0.4344597103601931,
+          "support": 590.0
+        },
+        "accuracy": 0.3651521467278033,
+        "macro avg": {
+          "precision": 0.6306410725989898,
+          "recall": 0.5761938893105096,
+          "f1-score": 0.3554721354651322,
+          "support": 2399.0
+        },
+        "weighted avg": {
+          "precision": 0.8097395787622308,
+          "recall": 0.3651521467278033,
+          "f1-score": 0.3153363064542613,
+          "support": 2399.0
+        }
+      },
+      "is_selected": true
+    }
+  },
+  "best_model": "AdaBoost (Tuned)",
+  "best_base_model": "AdaBoost",
+  "best_hyperparameters": {
+    "learning_rate": 0.05,
+    "n_estimators": 80
+  },
+  "feature_count": 28,
+  "train_size": 9595,
+  "test_size": 2399,
+  "class_distribution": {
+    "fraud": 2951,
+    "not_fraud": 9043,
+    "fraud_rate": 0.246
+  }
+}

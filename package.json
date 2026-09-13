@@ -1,0 +1,16 @@
+{
+  "name": "insurance-fraud-detection-system",
+  "version": "1.0.0",
+  "description": "Insurance Fraud Detection System - Full Stack ML Application",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "concurrently -n \"PYTHON_BACKEND,FRONTEND\" -c \"green,cyan\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd ml-service && (venv\\Scripts\\python app.py || python app.py)",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:express": "npm run dev --prefix backend",
+    "install:all": "npm install && npm install --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
