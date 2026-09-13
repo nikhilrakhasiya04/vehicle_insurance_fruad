@@ -9,6 +9,7 @@ frontend/.env
 frontend/.env.local
 backend/.env
 ml-service/.env
+.env.example
 
 # Python
 __pycache__/
