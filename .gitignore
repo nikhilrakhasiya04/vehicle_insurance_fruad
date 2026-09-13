@@ -5,11 +5,15 @@ backend/node_modules/
 
 # Environment variables
 .env
+.env.example
+*.env.example
 frontend/.env
 frontend/.env.local
+frontend/.env.example
 backend/.env
+backend/.env.example
 ml-service/.env
-.env.example
+ml-service/.env.example
 
 # Python
 __pycache__/
