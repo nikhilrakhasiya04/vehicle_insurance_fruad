@@ -1,0 +1,34 @@
+services:
+  # 1. Python Flask ML Backend
+  - type: web
+    name: insurance-fraud-ml-backend
+    env: python
+    rootDir: ml-service
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: FLASK_DEBUG
+        value: "false"
+      - key: PORT
+        value: "10000"
+
+  # 2. Next.js Frontend
+  - type: web
+    name: insurance-fraud-frontend
+    env: node
+    rootDir: frontend
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.20.0
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: insurance-fraud-ml-backend
+          property: host
+          path: /api

@@ -32,9 +32,8 @@ dist/
 build/
 .eggs/
 
-# ML Models (large binary files - regenerate by running train.py)
-ml-service/model/*.pkl
-ml-service/model/*.joblib
+# ML Models
+# ml-service/model/*.pkl (uncomment if models are >50MB)
 
 # Next.js
 frontend/.next/
