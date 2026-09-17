@@ -23,6 +23,10 @@ __pycache__/
 ml-service/venv/
 ml-service/env/
 ml-service/.venv/
+*.db
+*.sqlite
+*.sqlite3
+ml-service/predictions.db
 *.egg-info/
 dist/
 build/

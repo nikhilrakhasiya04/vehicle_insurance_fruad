@@ -14,7 +14,7 @@ export default function AboutPage() {
           <div className="p-3 bg-primary-600 rounded-xl shrink-0"><ShieldAlert className="w-7 h-7 text-white" /></div>
           <div>
             <h2 className="text-2xl font-extrabold text-white">Insurance Fraud Detection System</h2>
-            <p className="text-sm text-gray-400 mt-1">Production-ready full-stack ML application — Next.js + Express.js + Python Flask + XGBoost</p>
+            <p className="text-sm text-gray-400 mt-1">Production-ready full-stack ML application — Next.js + Python Flask Backend + XGBoost & SQLite</p>
           </div>
         </div>
       </div>
@@ -24,10 +24,10 @@ export default function AboutPage() {
         <p className="text-sm font-bold text-gray-200 mb-5">System Architecture</p>
         <div className="space-y-3">
           {[
-            { icon: Globe,    color:"text-blue-400",   bg:"bg-blue-900/30",   step:"1", title:"Next.js Frontend",     desc:"User fills form → sends POST to Express backend" },
-            { icon: Code2,    color:"text-purple-400", bg:"bg-purple-900/30", step:"2", title:"Express.js Backend",   desc:"Validates input, saves to MongoDB, forwards to Flask" },
-            { icon: Brain,    color:"text-green-400",  bg:"bg-green-900/30",  step:"3", title:"Flask ML Service",     desc:"Preprocesses input → runs through XGBoost pipeline" },
-            { icon: Database, color:"text-yellow-400", bg:"bg-yellow-900/30", step:"4", title:"Prediction Response",  desc:"Fraud label + probability returned to frontend" },
+            { icon: Globe,    color:"text-blue-400",   bg:"bg-blue-900/30",   step:"1", title:"Next.js Frontend",         desc:"User enters claim details → sends POST request to Python Flask REST API" },
+            { icon: Code2,    color:"text-purple-400", bg:"bg-purple-900/30", step:"2", title:"Python Flask Backend",     desc:"Validates payload, coordinates inference, and manages SQLite persistence" },
+            { icon: Brain,    color:"text-green-400",  bg:"bg-green-900/30",  step:"3", title:"ML XGBoost Engine",        desc:"Executes data preprocessing, feature transformations, and fraud probability inference" },
+            { icon: Database, color:"text-yellow-400", bg:"bg-yellow-900/30", step:"4", title:"Prediction & Dashboard",  desc:"Saves record to SQLite and returns fraud label + confidence scores to frontend" },
           ].map(({ icon: Icon, color, bg, step, title, desc }, i, arr) => (
             <div key={step}>
               <div className="flex items-start gap-3">
@@ -47,9 +47,9 @@ export default function AboutPage() {
       {/* Tech stack */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {[
-          { title:"Frontend",   icon: Globe,    color:"text-blue-400",   badges:[["Next.js 14","blue"],["React 18","blue"],["Tailwind CSS","blue"],["Recharts","purple"],["Axios","green"]] },
-          { title:"Backend",    icon: Code2,    color:"text-purple-400", badges:[["Node.js","green"],["Express.js","green"],["MongoDB","yellow"],["Mongoose","yellow"],["Helmet","red"]] },
-          { title:"ML Service", icon: Brain,    color:"text-green-400",  badges:[["Python","green"],["Flask","yellow"],["XGBoost","red"],["scikit-learn","blue"],["SMOTE","purple"],["joblib","blue"]] },
+          { title:"Frontend",         icon: Globe,    color:"text-blue-400",   badges:[["Next.js 14","blue"],["React 18","blue"],["Tailwind CSS","blue"],["Recharts","purple"],["Axios","green"],["Lucide Icons","yellow"]] },
+          { title:"Python Backend",   icon: Code2,    color:"text-purple-400", badges:[["Python 3.13","green"],["Flask","yellow"],["Flask-CORS","blue"],["SQLite3","green"],["REST API","purple"],["python-dotenv","blue"]] },
+          { title:"ML & Data Engine", icon: Brain,    color:"text-green-400",  badges:[["XGBoost","red"],["scikit-learn","blue"],["pandas","purple"],["numpy","blue"],["SMOTE / imblearn","yellow"],["joblib","blue"]] },
         ].map(({ title, icon: Icon, color, badges }) => (
           <div key={title} className="card">
             <div className="flex items-center gap-2 mb-4">
@@ -81,7 +81,7 @@ export default function AboutPage() {
             "Train: Logistic Regression, Random Forest, XGBoost, SVM",
             "Select best model: 0.6 × F1 + 0.4 × PR-AUC composite score",
             "Save full pipeline with joblib to ml-service/model/",
-            "Serve predictions via Flask REST API on port 5001",
+            "Serve predictions via Flask REST API on port 5000",
           ].map((s, i) => (
             <div key={i} className="flex items-start gap-2">
               <CheckCircle2 className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />

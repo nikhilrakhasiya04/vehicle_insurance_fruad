@@ -12,11 +12,15 @@ const api = axios.create({
 api.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    const message =
+    let message =
       error.response?.data?.error ||
       error.response?.data?.message ||
       error.message ||
       "An unexpected error occurred";
+    if (message === "Network Error" || error.code === "ERR_NETWORK") {
+      message =
+        "Network Error: Python backend (http://localhost:5000) is not reachable. Please start the backend service.";
+    }
     return Promise.reject(new Error(message));
   }
 );
