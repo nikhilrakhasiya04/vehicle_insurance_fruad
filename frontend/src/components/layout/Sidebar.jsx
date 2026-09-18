@@ -1,9 +1,11 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
-  LayoutDashboard, ShieldAlert, History,
-  BarChart3, Info, Activity,
+  LayoutDashboard,
+  ShieldAlert,
+  History,
+  BarChart3,
+  Info,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -16,13 +18,14 @@ const navItems = [
 ];
 
 export default function Sidebar() {
-  const pathname = usePathname();
+  const location = useLocation();
+  const pathname = location.pathname;
 
   return (
     <aside className="w-64 min-h-screen bg-gray-900 border-r border-gray-800 flex flex-col shrink-0">
       {/* Logo */}
       <div className="px-6 py-5 border-b border-gray-800">
-        <div className="flex items-center gap-3">
+        <Link to="/dashboard" className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-lg bg-primary-600 flex items-center justify-center shrink-0">
             <ShieldAlert className="w-5 h-5 text-white" />
           </div>
@@ -30,17 +33,17 @@ export default function Sidebar() {
             <p className="text-sm font-bold text-white leading-tight">FraudGuard</p>
             <p className="text-xs text-gray-500">ML Detection System</p>
           </div>
-        </div>
+        </Link>
       </div>
 
-      {/* Nav */}
+      {/* Navigation */}
       <nav className="flex-1 px-3 py-4 space-y-1">
         {navItems.map(({ href, icon: Icon, label }) => {
-          const active = pathname === href || pathname.startsWith(href + "/");
+          const active = pathname === href || (href !== "/dashboard" && pathname.startsWith(href));
           return (
             <Link
               key={href}
-              href={href}
+              to={href}
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-150",
                 active
@@ -55,11 +58,11 @@ export default function Sidebar() {
         })}
       </nav>
 
-      {/* Status */}
+      {/* Service Status */}
       <div className="px-4 py-4 border-t border-gray-800">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-xs text-gray-500">ML Service Active</span>
+          <span className="text-xs text-gray-400">FastAPI ML Active</span>
         </div>
       </div>
     </aside>

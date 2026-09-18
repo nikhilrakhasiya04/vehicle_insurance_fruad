@@ -1,7 +1,7 @@
 "use client";
 import { Trash2, ExternalLink } from "lucide-react";
 import { formatDate, formatPercent, formatCurrency } from "@/lib/utils";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export default function HistoryTable({ items, onDelete, deleting }) {
   if (!items?.length) {
@@ -51,7 +51,7 @@ export default function HistoryTable({ items, onDelete, deleting }) {
                 </td>
                 <td className="py-3 pr-4">
                   <div className="flex items-center gap-2">
-                    <Link href={`/history/${item._id}`}
+                    <Link to={`/history/${item._id}`}
                       className="text-gray-500 hover:text-blue-400 transition-colors">
                       <ExternalLink className="w-4 h-4" />
                     </Link>

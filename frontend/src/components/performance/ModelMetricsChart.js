@@ -16,7 +16,9 @@ export function ModelRadarChart({ models }) {
 
   const data = metrics.map((m) => {
     const point = { metric: labels[m] };
-    models.forEach((model) => { point[model.name] = parseFloat((model[m] * 100).toFixed(1)); });
+    models.forEach((model) => {
+      point[model.name] = parseFloat(((model[m] ?? 0) * 100).toFixed(1));
+    });
     return point;
   });
 
@@ -26,8 +28,15 @@ export function ModelRadarChart({ models }) {
         <PolarGrid stroke="#374151" />
         <PolarAngleAxis dataKey="metric" tick={{ fill: "#9ca3af", fontSize: 12 }} />
         {models.map((model, i) => (
-          <Radar key={model.name} name={model.name} dataKey={model.name}
-            stroke={COLORS[i]} fill={COLORS[i]} fillOpacity={0.15} strokeWidth={2} />
+          <Radar
+            key={model.name}
+            name={model.name}
+            dataKey={model.name}
+            stroke={COLORS[i % COLORS.length]}
+            fill={COLORS[i % COLORS.length]}
+            fillOpacity={0.15}
+            strokeWidth={2}
+          />
         ))}
         <Legend wrapperStyle={{ fontSize: 12, color: "#9ca3af" }} />
       </RadarChart>
@@ -35,12 +44,18 @@ export function ModelRadarChart({ models }) {
   );
 }
 
-export function MetricsBarChart({ models, metric, label }) {
+export function MetricsBarChart({ models, metric = "f1", label = "Score" }) {
   if (!models?.length) return null;
   const data = models.map((m, i) => ({
-    name:  m.name.replace("Logistic Regression", "LR").replace("Random Forest", "RF").replace("XGBoost", "XGB"),
-    value: parseFloat((m[metric] * 100).toFixed(2)),
-    color: COLORS[i],
+    name: m.name
+      ? m.name
+          .replace("Logistic Regression", "LR")
+          .replace("Random Forest", "RF")
+          .replace("XGBoost", "XGB")
+          .replace("Decision Tree", "DT")
+      : `Model ${i + 1}`,
+    value: parseFloat(((m[metric] ?? 0) * 100).toFixed(2)),
+    color: COLORS[i % COLORS.length],
     selected: m.isSelected,
   }));
 

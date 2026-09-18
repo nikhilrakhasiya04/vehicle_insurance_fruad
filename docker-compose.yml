@@ -18,13 +18,12 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_API_URL=http://localhost:5000/api
+        - VITE_API_URL=http://localhost:5000/api
     container_name: insurance_fraud_frontend
     ports:
-      - "3000:3000"
+      - "3000:80"
     environment:
-      - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=http://localhost:5000/api
+      - VITE_API_URL=http://localhost:5000/api
     depends_on:
       - backend
     restart: unless-stopped

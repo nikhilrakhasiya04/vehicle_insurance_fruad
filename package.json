@@ -6,7 +6,7 @@
     "start": "npm run dev",
     "build": "npm run build --prefix frontend",
     "dev": "concurrently -n \"PYTHON_BACKEND,FRONTEND\" -c \"green,cyan\" \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "dev:backend": "cd ml-service && (venv\\Scripts\\python.exe -u app.py || .\\venv\\Scripts\\python.exe -u app.py || python -u app.py)",
+    "dev:backend": "cd ml-service && (C:\\Users\\LENOVO\\anaconda3\\python.exe -u app.py || \"%USERPROFILE%\\anaconda3\\python.exe\" -u app.py || venv\\Scripts\\python.exe -u app.py || python -u app.py)",
     "dev:frontend": "npm run dev --prefix frontend",
     "dev:express": "npm run dev --prefix backend",
     "install:all": "npm install && npm install --prefix frontend"

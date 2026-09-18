@@ -18,8 +18,8 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Allow cross-origin requests from Next.js frontend
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+# Allow cross-origin requests from React/Vite frontend
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 PORT = int(os.getenv("PORT", os.getenv("FLASK_PORT", 5000)))
 DEBUG = os.getenv("FLASK_DEBUG", "false").lower() == "true"
@@ -41,6 +41,8 @@ def health():
 
 
 @app.route("/api/predictions/ml-health", methods=["GET"])
+@app.route("/api/ml-health", methods=["GET"])
+@app.route("/ml-health", methods=["GET"])
 def ml_health():
     return jsonify({
         "success": True,
@@ -56,6 +58,8 @@ def ml_health():
 #  Model Performance & Info
 # ─────────────────────────────────────────────
 @app.route("/api/predictions/model-performance", methods=["GET"])
+@app.route("/api/model-performance", methods=["GET"])
+@app.route("/model-performance", methods=["GET"])
 @app.route("/model-info", methods=["GET"])
 def model_performance():
     try:
@@ -70,6 +74,7 @@ def model_performance():
 # ─────────────────────────────────────────────
 #  Predictions: Submit Claim for Prediction
 # ─────────────────────────────────────────────
+@app.route("/api/predict", methods=["POST"])
 @app.route("/api/predictions/predict", methods=["POST"])
 @app.route("/predict", methods=["POST"])
 def predict_fraud():
@@ -127,6 +132,8 @@ def predict_fraud():
 #  Predictions: History & Pagination
 # ─────────────────────────────────────────────
 @app.route("/api/predictions/history", methods=["GET"])
+@app.route("/api/history", methods=["GET"])
+@app.route("/history", methods=["GET"])
 def prediction_history():
     """
     Returns paginated prediction history with optional filter (fraud / not_fraud).
@@ -159,6 +166,8 @@ def prediction_history():
 #  Predictions: Dashboard Statistics
 # ─────────────────────────────────────────────
 @app.route("/api/predictions/stats/summary", methods=["GET"])
+@app.route("/api/stats/summary", methods=["GET"])
+@app.route("/api/stats", methods=["GET"])
 def dashboard_stats():
     """
     Returns aggregated dashboard statistics.
@@ -178,6 +187,7 @@ def dashboard_stats():
 #  Predictions: Get By ID & Delete
 # ─────────────────────────────────────────────
 @app.route("/api/predictions/<prediction_id>", methods=["GET"])
+@app.route("/api/<prediction_id>", methods=["GET"])
 def get_prediction_by_id(prediction_id):
     """
     Returns a single prediction record by ID.
@@ -192,6 +202,7 @@ def get_prediction_by_id(prediction_id):
 
 
 @app.route("/api/predictions/<prediction_id>", methods=["DELETE"])
+@app.route("/api/<prediction_id>", methods=["DELETE"])
 def delete_prediction_by_id(prediction_id):
     """
     Deletes a single prediction record by ID.

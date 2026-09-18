@@ -19,10 +19,12 @@ ml-service/.env.example
 __pycache__/
 *.py[cod]
 *$py.class
-*.pyc
+backend/venv/
+backend/.venv/
 ml-service/venv/
 ml-service/env/
 ml-service/.venv/
+frontend/dist/
 *.db
 *.sqlite
 *.sqlite3
