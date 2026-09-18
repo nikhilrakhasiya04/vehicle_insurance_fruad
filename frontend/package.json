@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/swc-win32-x64-msvc": "^14.2.5",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "lucide-react": "^0.408.0",
